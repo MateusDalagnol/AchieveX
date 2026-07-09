@@ -23,12 +23,11 @@ public class User {
     private Date createdAt;
     private Date updatedAt;
 
-    public User(String username, String email, String steamProfileUrl, String steamId, UUID id, Date createdAt, Date updatedAt) {
+    public User(String username, String email, String steamProfileUrl, String steamId, Date createdAt, Date updatedAt) {
         this.username = username;
         this.email = email;
         this.steamProfileUrl = steamProfileUrl;
         this.steamId = steamId;
-        this.id = id;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
