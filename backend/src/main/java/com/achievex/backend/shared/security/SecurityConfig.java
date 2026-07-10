@@ -1,4 +1,4 @@
-package com.achievex.backend.shared.config;
+package com.achievex.backend.shared.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,8 +1,8 @@
-package com.achievex.backend.controllers;
+package com.achievex.backend.user.controller;
 
-import com.achievex.backend.dtos.CreateUserRequest;
-import com.achievex.backend.models.User;
-import com.achievex.backend.services.UserService;
+import com.achievex.backend.user.dto.CreateUserRequest;
+import com.achievex.backend.user.domain.User;
+import com.achievex.backend.user.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

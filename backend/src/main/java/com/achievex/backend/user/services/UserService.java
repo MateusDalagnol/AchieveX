@@ -1,8 +1,8 @@
-package com.achievex.backend.services;
+package com.achievex.backend.user.services;
 
-import com.achievex.backend.dtos.CreateUserRequest;
-import com.achievex.backend.models.User;
-import com.achievex.backend.repositories.UserRepository;
+import com.achievex.backend.user.dto.CreateUserRequest;
+import com.achievex.backend.user.domain.User;
+import com.achievex.backend.user.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

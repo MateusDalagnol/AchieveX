@@ -1,4 +1,4 @@
-package com.achievex.backend.models;
+package com.achievex.backend.user.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
