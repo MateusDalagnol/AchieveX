@@ -1,0 +1,1 @@
+ALTER TABLE users ALTER COLUMN steam_id DROP NOT NULL;
