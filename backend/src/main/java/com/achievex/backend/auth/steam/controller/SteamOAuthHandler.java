@@ -49,7 +49,7 @@ public class SteamOAuthHandler {
 
         User createdUser = userService.findOrCreateBySteamId(steamId);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+        return ResponseEntity.status(HttpStatus.OK).body(createdUser);
     }
 
 }
