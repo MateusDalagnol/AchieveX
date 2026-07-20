@@ -1,5 +1,7 @@
 package com.achievex.backend.auth.steam.controller;
 
+import com.achievex.backend.auth.dto.AuthResponse;
+import com.achievex.backend.auth.jwt.JwtUtil;
 import com.achievex.backend.auth.steam.service.SteamOpenIdService;
 import com.achievex.backend.user.domain.User;
 import com.achievex.backend.user.services.UserService;
@@ -15,10 +17,12 @@ public class SteamOAuthHandler {
 
     private final SteamOpenIdService steamOpenIdService;
     private final UserService userService;
+    private final JwtUtil jwtUtil;
 
-    public SteamOAuthHandler(SteamOpenIdService steamOpenIdService, UserService userService) {
+    public SteamOAuthHandler(SteamOpenIdService steamOpenIdService, UserService userService, JwtUtil jwtUtil) {
         this.steamOpenIdService = steamOpenIdService;
         this.userService = userService;
+        this.jwtUtil = jwtUtil;
     }
 
 
@@ -37,7 +41,7 @@ public class SteamOAuthHandler {
     }
 
     @GetMapping("/api/v1/auth/steam/callback")
-    public ResponseEntity<User> handlerCallback(HttpServletRequest request){
+    public ResponseEntity<AuthResponse> handlerCallback(HttpServletRequest request){
         boolean valid = steamOpenIdService.verifyAuthentication(request.getParameterMap());
 
         if(!valid){
@@ -49,7 +53,9 @@ public class SteamOAuthHandler {
 
         User createdUser = userService.findOrCreateBySteamId(steamId);
 
-        return ResponseEntity.status(HttpStatus.OK).body(createdUser);
+        AuthResponse response = new AuthResponse(jwtUtil.generateToken(createdUser), createdUser);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
 }
