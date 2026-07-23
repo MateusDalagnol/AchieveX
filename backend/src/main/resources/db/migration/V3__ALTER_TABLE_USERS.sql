@@ -1,0 +1,1 @@
+ALTER TABLE users ADD CONSTRAINT uq_users_steam_id UNIQUE (steam_id);
