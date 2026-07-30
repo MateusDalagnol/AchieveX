@@ -15,7 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     private User createUser(String username, String email ) {
-        User user = new User(username, email, null, null, new Date(), new Date());
+        User user = new User(username, email, null, null, null, new Date(), new Date());
         return userRepository.save(user);
     }
 
@@ -33,7 +33,13 @@ public class UserService {
     }
 
     private User createUserFromSteam(String steamId) {
-        User user = new User("steam_" + steamId,null,null,steamId, new Date(), new Date());
+        User user = new User("steam_" + steamId,null,null,steamId, null, new Date(), new Date());
         return userRepository.save(user);
+    }
+    
+    public User updateUsername(User user, String newUsername) {
+        user.setUsername(newUsername);
+        return  userRepository.save(user);
+        
     }
 }

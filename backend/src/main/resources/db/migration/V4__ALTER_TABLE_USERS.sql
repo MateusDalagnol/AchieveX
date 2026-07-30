@@ -1,0 +1,1 @@
+ALTER TABLE users ADD COLUMN steam_username VARCHAR NULL
